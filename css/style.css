@@ -3,6 +3,152 @@
   box-sizing: border-box;
 }
 
+/* ---------------------------------------------------- */
+/* 🛠️ MOBİL FIRST (VARSAYILAN / min-width: 0px) STİLLERİ 🛠️ */
+/* ---------------------------------------------------- */
+
+/* Menünün Mobilde açılıp kapanması için gerekli kurallar */
+
+/* Masaüstü Navigasyon ve Adresi Mobilde Gizle */
+/* DİKKAT: Mobil menüye geçiş yaptığımız için eski 'address, .nav' yerine yeni sınıfları kullanıyoruz. */
+.nav-desktop,
+.address-desktop {
+  display: none;
+}
+
+/* Hamburger Butonunu Göster */
+.mobile-menu-btn-label {
+  display: block; /* Veya flex */
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Header Container'ı Düzeltme (Logo solda, buton sağda) */
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+/* style.css (Mobil Menü Stilleri) */
+
+/* 1. Menü Kapsayıcı (Kapalı Durum) */
+.mobile-menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.7);
+  z-index: 999;
+
+  /* Başlangıçta Gizle */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(100%); /* Tamamen sağa kaydır */
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 2. Menü İçeriği (Beyaz Alan) */
+.mobile-menu-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 320px;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 80px 40px 40px 40px; /* İç boşluklar (Üstten daha fazla) */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* İçeriği (Nav ve Adres/Sosyal) alta ve üste iter */
+  overflow: auto;
+}
+
+/* 3. Checkbox İle Açma */
+#menu-toggle:checked ~ .mobile-menu-backdrop {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0); /* Ekran içine kaydır */
+}
+
+/* 4. Kapatma Butonu (X ikonu) */
+.menu-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* 5. Navigasyon ve Alt Kısım Stilleri */
+
+.mobile-nav-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav-ul a {
+  font-size: 36px;
+  line-height: 1.11;
+  font-weight: 700;
+  color: #2e2f42;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.mobile-nav-ul a:hover,
+.mobile-nav-ul a:focus {
+  color: #4d5ae5;
+}
+
+/* Mobil Adres ve Sosyal Kısım */
+
+.mobile-address-social {
+  /* Bu kısım flex-direction: column sayesinde container'ın alt kısmına itildi */
+  margin-bottom: 40px;
+}
+
+.mobile-address a {
+  display: block;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.mobile-address .phone-link {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.11;
+  color: #4d5ae5;
+  margin-bottom: 40px;
+}
+
+.mobile-address .mail-link {
+  font-size: 20px;
+  color: #434455;
+  margin-bottom: 48px;
+}
+
+.mobile-social-list {
+  display: flex;
+  gap: 24px;
+}
+
 /* Buton ve Link Temizleme */
 a {
   text-decoration: none;
@@ -65,15 +211,15 @@ button {
   transform: scaleX(1); /* Yatayda ölçeği 1 yap (görünür hale getir) */
 }
 
-/* ⚠️ DİKKAT: Artık Studio linki için kalıcı alt çizgi kuralı SİLİNDİ. 
+/* ⚠️ DİKKAT: Artık Studio linki için kalıcı alt çizgi kuralı SİLİNDİ.
    Ancak, Studio linkinin TIKLANMIŞ/AKTİF olduğunu belirtmek için renk kuralını koruyoruz: */
 .li-studio a {
   color: #4d5ae5;
 }
 /* ---------------------------------------------------------------------------------- */
 
-/* Adres Linkleri */
-.address a {
+/* Adres Linkleri (Kullanılmayacak, sadece address-desktop kullanılacak) */
+.address-desktop a {
   font-style: normal;
   color: #434455;
   line-height: 1.5;
@@ -81,8 +227,8 @@ button {
 }
 
 /* Adres Linklerinin Hover/Focus Durumu (MAVİ) */
-.address a:hover,
-.address a:focus {
+.address-desktop a:hover,
+.address-desktop a:focus {
   color: #4d5ae5;
 }
 
@@ -228,28 +374,15 @@ ul {
 /* Header */
 .header {
   border-bottom: 1px solid #e7e9fc;
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
-.header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* DİKKAT: Padding'ler yukarıdaki .header .container kuralına taşındı, burayı silebilirsiniz. */
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-/* Navigasyon ve Adres mobil görünümde gizlenir */
-.address,
-.nav {
-  display: none;
-}
-/* Hamburger Menü İkonu */
-.mobile-menu-btn {
-  display: block;
-  background: transparent;
-  border: none;
-  padding: 0;
-  line-height: 0;
-}
+/* ⚠️ TEMİZLİK: Eski, kullanılmayan/tekrarlanan kurallar kaldırıldı: */
+/* .header .container kuralı yukarıda tekrar tanımlandığı için burası silindi. */
+/* .address ve .nav kuralı yerine .nav-desktop ve .address-desktop kullanılıyor. */
+/* .mobile-menu-btn yerine .mobile-menu-btn-label kullanılıyor. */
 
 /* Diğer Header Stilleri */
 .logo {
@@ -594,7 +727,7 @@ h3 {
   /* Standartlar ve En Yeni Tarayıcılar (Chrome, Firefox, Edge, Safari) */
   color: #ffffff; /* Beyaz veya istediğiniz herhangi bir renk */
   opacity: 1; /* Bazı tarayıcılar (özellikle Firefox) varsayılan olarak daha düşük opaklık verir, 
-                 bunu temizlemek için eklenmiştir. */
+               bunu temizlemek için eklenmiştir. */
 }
 
 /* MODAL (MOBILE FIRST) */
@@ -604,12 +737,68 @@ h3 {
   padding: 72px 16px 24px 16px;
 }
 
+/* ---------------------------------------------------- */
 /* --- TABLET GÖRÜNÜMÜ (min 768px) --- */
+/* ---------------------------------------------------- */
 @media screen and (min-width: 768px) {
   /* CONTAINER */
   .container {
     max-width: 768px;
     padding: 0 24px;
+  }
+
+  /* 🟢 HEADER GÜNCELLEMESİ (Mobil Menüyü Gizle, Masaüstü/Tablet Menüyü Göster) */
+  /* Mobil menü mekanizmasını gizle */
+  .mobile-menu-btn-label,
+  .menu-toggle-checkbox,
+  .mobile-menu-backdrop {
+    display: none;
+  }
+
+  /* Masaüstü Navigasyon ve Adresi Göster */
+  .nav-desktop {
+    display: block; /* Veya flex/inline-block */
+    margin-right: auto; /* Logo ile navigasyon arasına boşluk bırakır */
+    margin-left: 120px; /* Figma'ya göre logo ve menü arasına boşluk */
+  }
+
+  .address-desktop {
+    display: flex;
+    flex-direction: column; /* Tablette dikey sıralama */
+    gap: 4px;
+  }
+
+  /* Header Container Düzeni */
+  .header .container {
+    display: flex;
+    justify-content: flex-start; /* Logo, Nav ve Adres soldan başlar */
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 72px; /* Headere sabit yükseklik */
+  }
+
+  .nav-desktop .nav-ul {
+    display: flex;
+    gap: 40px;
+    height: 72px;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  /* Linklerin dikey hizalanması (Navigasyon Linkleri) */
+  .nav-ul a {
+    padding: 24px 0; /* Header yüksekliğini doldurur */
+  }
+
+  /* Adres Linkleri - Tekrar Tanımlama (Tablet gereksinimi) */
+  .address-desktop a {
+    font-size: 12px; /* Tablette font boyutu 12px */
+    line-height: 1.16;
+    letter-spacing: 0.04em;
+    padding: 5px 0;
   }
 
   /* Hero title tablet için responsive */
@@ -618,27 +807,6 @@ h3 {
     font-weight: 700;
     line-height: 60px;
     font-family: "Roboto", sans-serif;
-  }
-
-  /* HEADER */
-  .address,
-  .nav {
-    display: block;
-  }
-  .mobile-menu-btn {
-    display: none;
-  }
-  .header .container {
-    justify-content: space-between;
-  }
-  .nav-ul {
-    display: flex;
-    gap: 40px;
-  }
-  .address {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
   }
 
   /* HERO */
@@ -726,15 +894,20 @@ h3 {
   .footer-social {
     text-align: left;
   }
+  /* Footer abone olma kısmını tablet görünümünde doğru konuma taşımak için */
   .footer-subscribe {
     text-align: left;
-    width: 100%;
+    width: 100%; /* Tam satır kaplayarak bir alt satıra geçer */
     padding-top: 16px;
+    /* Tablette 2. satırda, soldan 108px boşluk vermesi için: */
+    margin-left: -84px; /* (108px - 24px gap) = 84px */
   }
 
   .subscribe-form {
     flex-direction: row;
     gap: 24px;
+    width: auto; /* İçerik genişliği kadar yer kaplar */
+    margin: 0; /* Ortalamayı kaldırır */
   }
   .subscribe-form input[type="email"] {
     width: 264px;
@@ -748,7 +921,9 @@ h3 {
   }
 }
 
+/* ---------------------------------------------------- */
 /* --- MASAÜSTÜ GÖRÜNÜMÜ (min 1158px) --- */
+/* ---------------------------------------------------- */
 @media screen and (min-width: 1158px) {
   /* CONTAINER */
   .container {
@@ -766,9 +941,24 @@ h3 {
   }
 
   /* HEADER */
-  .address {
-    flex-direction: row;
+  .header .container {
+    height: 72px; /* Header yüksekliği */
+  }
+  .nav-desktop {
+    margin-left: 76px; /* Figma'ya göre Logo ve Navigasyon arası boşluk */
+  }
+  .address-desktop {
+    flex-direction: row; /* Masaüstünde yatay sıralama */
     gap: 40px;
+    /* DİKKAT: address-desktop'un nav-desktop'tan sonra gelmesi ve container'ın sonunda yer alması gerekiyor. */
+  }
+
+  /* Adres Linkleri - Tekrar Tanımlama (Masaüstü gereksinimi) */
+  .address-desktop a {
+    font-size: 16px; /* Masaüstünde font boyutu 16px */
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    padding: 0;
   }
 
   /* HERO */
@@ -801,7 +991,8 @@ h3 {
     display: flex;
     height: 112px;
     margin-bottom: 8px;
-    border: none;
+    border: 1px solid rgba(142, 143, 153, 1);
+    background-color: #f4f4fd;
   }
 
   /* TEAM - 4 Sütun */
@@ -823,14 +1014,22 @@ h3 {
 
   /* FOOTER - Yatay ve Düzenli Sıralama */
   .footer .container {
-    gap: 120px;
+    flex-wrap: nowrap; /* Tek satırda kalır */
+    gap: 0;
+    justify-content: flex-start;
     padding-left: 0;
   }
-  .footer-social {
-    margin-right: 120px;
+  .footer-info {
+    margin-right: 120px; /* Logo ve Sosyal Alan Arası */
   }
+  .footer-social {
+    margin-right: 80px; /* Sosyal Alan ve Abone Alanı Arası */
+  }
+  /* Footer abone olma kısmını tek satırda hizalamak için */
   .footer-subscribe {
     width: auto;
+    padding-top: 0;
+    margin-left: 0;
   }
 
   /* MODAL */

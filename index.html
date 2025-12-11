@@ -23,11 +23,94 @@
     <!-- Üstbilgi bölümüm -->
     <header class="header">
       <div class="container">
-        <!-- Logo metinli bağlantı -->
         <a href="#" class="logo"><span class="span-1">WEB</span>STUDIO</a>
 
-        <!-- Navigasyon menüm -->
-        <nav class="nav">
+        <input
+          type="checkbox"
+          id="menu-toggle"
+          class="menu-toggle-checkbox"
+          hidden
+        />
+
+        <label
+          for="menu-toggle"
+          class="mobile-menu-btn-label"
+          aria-label="Open mobile menu"
+        >
+          <svg class="icon-heroicons-solid_menu" width="24" height="24">
+            <use href="./images/menu-icon.svg#icon-heroicons-solid_menu"></use>
+          </svg>
+        </label>
+
+        <div class="mobile-menu-backdrop">
+          <div class="mobile-menu-container">
+            <label
+              for="menu-toggle"
+              class="menu-close-btn"
+              aria-label="Close mobile menu"
+            >
+              <svg class="icon-heroicons-solid_menu" width="8" height="8">
+                <use href="./images/icons.svg#icon-Vector1"></use>
+              </svg>
+            </label>
+
+            <nav class="nav">
+              <ul class="mobile-nav-ul">
+                <li class="li-studio"><a href="#">Studio</a></li>
+                <li class="li-portfolio"><a href="#">Portfolio</a></li>
+                <li class="li-contacts"><a href="#">Contacts</a></li>
+              </ul>
+            </nav>
+
+            <div class="mobile-address-social">
+              <address class="mobile-address">
+                <a href="tel:+110001111111" class="phone-link"
+                  >+11 (000) 111-11-11</a
+                >
+                <a href="mailto:info@devstudio.com" class="mail-link"
+                  >info@devstudio.com</a
+                >
+              </address>
+
+              <ul class="mobile-social-list social-list">
+                <li>
+                  <a href="#" class="social-link">
+                    <svg class="social-icon" width="24" height="24">
+                      <use href="./images/icons.svg#icon-instagram-2"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="social-link">
+                    <svg class="social-icon" width="24" height="24">
+                      <use href="./images/icons.svg#icon-Group"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="social-link">
+                    <svg
+                      class="social-icon icon-Vector11"
+                      width="24"
+                      height="24"
+                    >
+                      <use href="./images/icons.svg#icon-Vector11"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="social-link">
+                    <svg class="social-icon" width="24" height="24">
+                      <use href="./images/icons.svg#icon-linkedin-1"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <nav class="nav-desktop">
           <ul class="nav-ul">
             <li class="li-studio"><a href="#">Studio</a></li>
             <li class="li-portfolio"><a href="#">Portfolio</a></li>
@@ -35,8 +118,7 @@
           </ul>
         </nav>
 
-        <!-- İletişim bilgileri nav dışında ve adress olarak etiketli -->
-        <address class="address">
+        <address class="address-desktop">
           <a href="mailto:info@devstudio.com">info@devstudio.com</a>
           <a href="tel:+110001111111">+11 (000) 111-11-11</a>
         </address>
