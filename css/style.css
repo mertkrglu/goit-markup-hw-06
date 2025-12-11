@@ -165,6 +165,13 @@ button {
   border: 1px solid #31d0aa;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
+/* Label elementini Input gibi genişletir ve form içindeki ortalamaya uyum sağlar */
+.subscribe-label {
+  display: block; /* Label'ın tam genişlik almasını sağlar */
+  width: 100%; /* Formun genişliğini alır */
+  max-width: 288px; /* Input ile aynı maksimum genişliği korur */
+  margin: 0 auto; /* Label'ın kendisini yatayda ortalar */
+}
 
 /* YENİ EKLENDİ: Footer Sosyal Link Hover/Focus Efekti (YEŞİL) */
 .footer-social .social-link:hover,
