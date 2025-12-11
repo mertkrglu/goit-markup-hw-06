@@ -310,11 +310,11 @@ h2 {
 
 /* H3 Başlık Stilleri Responsive göre yapıldı */
 h3 {
-  font-size: 36px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 500;
   font-family: "Roboto", sans-serif;
   color: rgba(46, 47, 66, 1);
-  line-height: 40px;
+  line-height: 24px;
 }
 
 /* STRATEGY - Tek Sütun (MOBILE FIRST) */
@@ -345,6 +345,14 @@ h3 {
   padding: 0;
   margin: 0;
 }
+
+/* TEAM Kartı Görselleri için Gerekli Stil Mobil ve diğer görünümler için */
+.team-li img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .team-li {
   background-color: #ffffff;
   border-radius: 4px;
@@ -363,6 +371,10 @@ h3 {
 .team-li p {
   color: #434455;
   margin-bottom: 8px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
 }
 
 /* PORTFOLIO - Tek Sütun (MOBILE FIRST) */
@@ -385,9 +397,29 @@ h3 {
   border-width: 0px 1px 1px 1px;
   border-style: solid;
   border-color: rgba(231, 233, 252, 1);
-  box-shadow: none;
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08);
+  box-shadow: 0px 1px 1px 0px rgba(46, 47, 66, 0.16);
+  box-shadow: 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
     transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Portfolio da h3 responsive mobile göre*/
+.portfolio-li h3 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  font-family: "Roboto", sans-serif;
+  color: rgba(46, 47, 66, 1);
+}
+
+/* Portfolio da paragraf responsive mobile göre*/
+.ilk-yazi {
+  color: rgba(67, 68, 85, 1);
+  font-size: 16px;
+  margin: 0 16px 32px;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 /* PORTFOLIO - HOVER DURUMUNDA BOX-SHADOW VE BORDER SIFIRLAMA */
@@ -400,10 +432,22 @@ h3 {
   border: none;
 }
 
-/* 🖼️ PORTFOLIO OVERLAY/THUMB STİLLERİ 🖼️ */
+/* 🖼️ PORTFOLIO OVERLAY/THUMB STİLLERİ Önce Mobile göre 🖼️ */
 .portfolio-thumb {
   position: relative;
   overflow: hidden;
+  /* Mobil için, flexbox ile görseli ortalamak için (Eğer görsel 100% genişlikte değilse işe yarar) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* YENİ EKLENECEK KURAL: Görselin kapsayıcısının (kartın) genişliğini almasını sağlar */
+.portfolio-li img {
+  width: 100%;
+  height: auto;
+  display: block; /* Tarayıcı boşluklarını gidermek için */
+  /* Görselin kartın içine sığması ve taşmaması için kritik kural */
 }
 
 .portfolio-overlay {
@@ -430,11 +474,6 @@ h3 {
 
 .portfolio-li h3 {
   margin: 32px 16px 8px;
-}
-.ilk-yazi {
-  color: rgba(67, 68, 85, 1);
-  font-size: 16px;
-  margin: 0 16px 32px;
 }
 
 /* Footer (MOBILE FIRST) */
