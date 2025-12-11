@@ -483,49 +483,111 @@ h3 {
 }
 .footer .container {
   display: flex;
-  flex-direction: column;
-  gap: 72px;
-  align-items: center;
+  flex-direction: column; /* Dikey sıralama doğru */
+  gap: 72px; /* Dikey boşluk doğru */
+  align-items: center; /* **BU KURAL YATAYDA ORTALAR** */
 }
 .footer-info {
-  text-align: center;
+  text-align: center; /* Metinleri ortalar */
   width: 264px;
 }
 .footer .logo {
   display: block;
-  text-align: center;
+  text-align: center; /* Logoyu ortalar */
   margin-bottom: 16px;
   color: #4d5ae5;
+  font-size: 18px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  line-height: 21px;
 }
+
+.footer-social {
+  width: 100%;
+  text-align: center; /* Sosyal medya başlığını ortalar */
+}
+
+/* Footer Sosyal İkon Listesi (Yan yana sıralama ve ortalama) */
+.social-list {
+  display: flex; /* KRİTİK: İkonları yan yana (yatayda) sıralar */
+  justify-content: center; /* İkonları yatay eksende ortalar */
+  gap: 16px; /* İkonlar arasında 16px boşluk bırakır */
+  margin-top: 0; /* Boşluk kontrolü için sıfırlama (Başlıkta 16px boşluk var) */
+  padding: 0;
+}
+
+.footer-social .social-link {
+  /* Bu sınıfı veya HTML'inizdeki ikonları kapsayan doğru sınıfı kullanın */
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5; /* Ana Mavi Renk */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-social .social-link svg {
+  fill: #f4f4fd; /* İkonun rengi (Açık Beyaz/Gri) */
+}
+
+/* Hover/Focus durumu (Daha önce eklediğiniz Ocean Green vurgusu) */
+.footer-social .social-link:hover,
+.footer-social .social-link:focus {
+  background-color: #31d0aa;
+}
+
+.footer-social p {
+  margin-bottom: 16px; /* Başlık ile ikon listesi arasına 16px boşluk ekler/ayarlar */
+  margin-top: 0; /* Tarayıcının üstten verdiği varsayılan boşluğu sıfırlar (gerekliyse) */
+}
+
+.footer-subscribe {
+  width: 100%;
+  text-align: center; /* Abone olma başlığını ortalar */
+}
+
+.subscribe-text {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 1);
+}
+
 .footer .span-2 {
   color: #f4f4fd;
 }
-.footer p {
-  color: #f4f4fd;
-  font-size: 16px;
-  line-height: 1.5;
-  width: 264px;
-  margin: 0 auto;
-}
-.footer-social {
-  width: 100%;
-  text-align: center;
-}
-.footer-subscribe {
-  width: 100%;
-  text-align: center;
-}
+
 .subscribe-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
   width: 100%;
+  max-width: 320px; /* Varsa, mobil görünümde tam ekran genişliğini kaplaması için bırakın */
+  margin: 0 auto; /* Formun kendisinin ortalanmasını sağlar */
 }
 .subscribe-form input[type="email"] {
   width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
+  max-width: 288px; /* Figma genişliğine uyum */
+  height: 40px;
+  display: block; /* Önemli: Input'un tam bir blok elementi gibi davranmasını sağlar */
+  margin: 0 auto; /* Gerekli olmasa da, güvence amaçlı kalsın */
+  /* Gerekirse, kutu kenarlık rengi ve stili doğru mu kontrol edin */
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  color: #ffffff; /* Yazı rengi */
+  background-color: transparent;
+  padding: 8px 16px;
+}
+
+.subscribe-form input[type="email"]::placeholder {
+  /* Standartlar ve En Yeni Tarayıcılar (Chrome, Firefox, Edge, Safari) */
+  color: #ffffff; /* Beyaz veya istediğiniz herhangi bir renk */
+  opacity: 1; /* Bazı tarayıcılar (özellikle Firefox) varsayılan olarak daha düşük opaklık verir, 
+                 bunu temizlemek için eklenmiştir. */
 }
 
 /* MODAL (MOBILE FIRST) */
@@ -662,6 +724,7 @@ h3 {
     width: 100%;
     padding-top: 16px;
   }
+
   .subscribe-form {
     flex-direction: row;
     gap: 24px;
