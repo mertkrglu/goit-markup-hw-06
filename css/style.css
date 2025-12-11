@@ -275,6 +275,7 @@ ul {
   background-repeat: no-repeat;
 }
 
+/* Hero title (MOBILE FIRST) */
 .hero-title {
   font-weight: 700;
   line-height: 1.11;
@@ -290,11 +291,20 @@ ul {
   text-align: center;
 }
 
+/* Hero paragraf stili (MOBILE FIRST) Mobile göre responsivde font ve bold değişir */
+.strategy-ul p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: rgba(67, 68, 85, 1);
+  font-family: "Roboto", sans-serif;
+}
+
 /* Hiyerarşi Başlık Stilleri */
 h2 {
   font-size: 36px;
   font-weight: 700;
-  line-height: 1.11;
+  line-height: 40px;
   color: #2e2f42;
 }
 
@@ -321,10 +331,6 @@ h3 {
 }
 .strategy-icon-box {
   display: none;
-}
-.strategy p {
-  line-height: 1.5;
-  font-weight: 400;
 }
 
 /* TEAM - Tek Sütun (MOBILE FIRST) */
@@ -496,6 +502,14 @@ h3 {
   .container {
     max-width: 768px;
     padding: 0 24px;
+  }
+
+  /* Hero title tablet için responsive */
+  .hero-title {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 60px;
+    font-family: "Roboto", sans-serif;
   }
 
   /* HEADER */
