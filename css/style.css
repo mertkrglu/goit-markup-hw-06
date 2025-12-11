@@ -3,6 +3,176 @@
   box-sizing: border-box;
 }
 
+/* Buton ve Link Temizleme */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container a {
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 700;
+  font-family: "Raleway", sans-serif;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+/* Navigasyon Linkleri (Alt Çizgi Hazırlığı) */
+.nav-ul a {
+  color: #2e2f42;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  display: block;
+  padding: 24px 0;
+  position: relative;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Navigasyon Linklerinin Hover/Focus Durumu (Renk) */
+.nav-ul a:hover,
+.nav-ul a:focus {
+  color: #4d5ae5;
+}
+
+/* 🟢 GÜNCELLENDİ: TÜM Navigasyon Linkleri için Alt Çizgi Yapılandırması (Gizli) 🟢 */
+.nav-ul a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 4px;
+  width: 100%;
+  background-color: #4d5ae5;
+  border-radius: 2px;
+  /* Başlangıçta gizle: Yatayda ölçeği 0 yap */
+  transform: scaleX(0);
+  /* Animasyon geçişi */
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover/Focus Durumunda Alt Çizgiyi Göster */
+.nav-ul a:hover::after,
+.nav-ul a:focus::after {
+  transform: scaleX(1); /* Yatayda ölçeği 1 yap (görünür hale getir) */
+}
+
+/* ⚠️ DİKKAT: Artık Studio linki için kalıcı alt çizgi kuralı SİLİNDİ. 
+   Ancak, Studio linkinin TIKLANMIŞ/AKTİF olduğunu belirtmek için renk kuralını koruyoruz: */
+.li-studio a {
+  color: #4d5ae5;
+}
+/* ---------------------------------------------------------------------------------- */
+
+/* Adres Linkleri */
+.address a {
+  font-style: normal;
+  color: #434455;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+/* Adres Linklerinin Hover/Focus Durumu (MAVİ) */
+.address a:hover,
+.address a:focus {
+  color: #4d5ae5;
+}
+
+/* Genel Buton Stili */
+.button {
+  background-color: #4d5ae5;
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  border-radius: 4px;
+  padding: 16px 32px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Genel Buton Hover/Focus Durumu (KOYU MAVİ) */
+.button:hover,
+.button:focus {
+  background-color: #404bbf;
+}
+
+/* Hero Butonu (Ek boşluklar) */
+.hero-button {
+  min-width: 169px;
+  height: 56px;
+  margin: 0 auto;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: 4px;
+}
+
+/* Footer Subscribe Butonu */
+.subscribe-button {
+  padding: 8px 24px;
+  display: flex;
+  gap: 16px;
+  min-width: 165px;
+}
+.subscribe-button .icon-icon-send {
+  fill: rgba(244, 244, 253, 1);
+}
+
+/* TEAM Sosyal Medya İkonları için Gerekli Stiller */
+.team-icon-box {
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* GÜNCELLENDİ: Team Sosyal İkon Kutusu Hover/Focus Etkisi (OCEAN GREEN) */
+.team-icon-box:hover,
+.team-icon-box:focus {
+  background-color: #31d0aa; /* Ocean Green Vurgu Rengi */
+}
+
+.team-icon {
+  fill: #f4f4fd;
+}
+
+.team-social-list {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+/* 🟢 FOOTER VE SUBSCRIBE EKLEMELERİ 🟢 */
+
+/* YENİ EKLENDİ: Subscribe Input/Label Hover/Focus Efekti (YEŞİL) */
+.subscribe-label:hover,
+.subscribe-label:focus {
+  border: 1px solid #31d0aa;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+/* YENİ EKLENDİ: Footer Sosyal Link Hover/Focus Efekti (YEŞİL) */
+.footer-social .social-link:hover,
+.footer-social .social-link:focus {
+  background-color: #31d0aa;
+}
+/* ---------------------------------------------------- */
+
 html {
   font-size: 16px;
 }
@@ -28,7 +198,6 @@ ul {
   list-style: none;
 }
 
-/* B3,B4 ve B15 de istenen paddig üst ve alt değeri (DEFAULT: MOBILE FIRST) */
 /* Tüm bölümler için dikey boşluk ayarı (Mobile First: 96px) */
 .strategy,
 .team,
@@ -41,11 +210,11 @@ ul {
   width: 100%;
 }
 
-/* B6,B8 ve B9 de istenen container kısmı (MOBILE FIRST) */
+/* Container (MOBILE FIRST) */
 .container {
   width: 100%;
-  max-width: 428px; /* Varsayılan mobil max genişlik */
-  padding: 0 16px; /* Sağ ve sol 16px boşluk */
+  max-width: 320px;
+  padding: 0 16px;
   margin: 0 auto;
 }
 
@@ -73,7 +242,6 @@ ul {
   border: none;
   padding: 0;
   line-height: 0;
-  /* İkon stilini ekleyin */
 }
 
 /* Diğer Header Stilleri */
@@ -101,7 +269,7 @@ ul {
   padding-bottom: 112px;
   /* Mobil Arka Plan Resmi */
   background: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-    url("../images/hero-bg-mobile.jpg");
+    url("../images/people-office-1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -111,7 +279,7 @@ ul {
   font-weight: 700;
   line-height: 1.11;
   color: #ffffff;
-  font-size: 36px; /* Mobil için 36px */
+  font-size: 36px;
   font-family: "Roboto", sans-serif;
   width: 100%;
   max-width: 320px;
@@ -129,11 +297,14 @@ h2 {
   line-height: 1.11;
   color: #2e2f42;
 }
+
+/* H3 Başlık Stilleri Responsive göre yapıldı */
 h3 {
-  font-size: 20px;
-  color: #2e2f42;
-  line-height: 1.2;
-  font-weight: 500;
+  font-size: 36px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  color: rgba(46, 47, 66, 1);
+  line-height: 40px;
 }
 
 /* STRATEGY - Tek Sütun (MOBILE FIRST) */
@@ -149,7 +320,7 @@ h3 {
   text-align: center;
 }
 .strategy-icon-box {
-  display: none; /* Mobilde ikon kutusu gizli */
+  display: none;
 }
 .strategy p {
   line-height: 1.5;
@@ -171,6 +342,7 @@ h3 {
 .team-li {
   background-color: #ffffff;
   border-radius: 4px;
+  /* TEAM Kartları İçin Katmanlı Box Shadow */
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
   flex-basis: auto;
@@ -184,13 +356,7 @@ h3 {
 }
 .team-li p {
   color: #434455;
-  margin-bottom: 8px; /* Unvan ile sosyal ikon listesi arasına 8px boşluk */
-}
-.team-social-list {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
 }
 
 /* PORTFOLIO - Tek Sütun (MOBILE FIRST) */
@@ -208,15 +374,54 @@ h3 {
 .portfolio-li {
   width: 100%;
   background-color: #ffffff;
-  border-radius: 4px;
   border: 1px solid #e7e9fc;
   overflow: hidden;
   border-width: 0px 1px 1px 1px;
   border-style: solid;
   border-color: rgba(231, 233, 252, 1);
-  box-shadow: none; /* Mobil kartlar için gölge yok */
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: none;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* PORTFOLIO - HOVER DURUMUNDA BOX-SHADOW VE BORDER SIFIRLAMA */
+.portfolio-li:hover,
+.portfolio-li:focus {
+  /* Katmanlı Box Shadow Uygulanır */
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+  border: none;
+}
+
+/* 🖼️ PORTFOLIO OVERLAY/THUMB STİLLERİ 🖼️ */
+.portfolio-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  color: #f4f4fd;
+  padding: 40px 32px;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover/Focus Durumunda Overlay'i Görünür Yap */
+.portfolio-li:hover .portfolio-overlay,
+.portfolio-li:focus .portfolio-overlay {
+  transform: translateY(0);
+}
+
 .portfolio-li h3 {
   margin: 32px 16px 8px;
 }
@@ -233,7 +438,7 @@ h3 {
 }
 .footer .container {
   display: flex;
-  flex-direction: column; /* Dikey sıralama */
+  flex-direction: column;
   gap: 72px;
   align-items: center;
 }
@@ -326,7 +531,7 @@ h3 {
   }
   .hero {
     background: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-      url("../images/hero-bg-tablet.jpg");
+      url("../images/people-office-1.jpg");
     background-size: cover;
     background-position: center;
   }
@@ -348,7 +553,6 @@ h3 {
     display: flex;
     height: 112px;
     margin-bottom: 8px;
-    /* İkon kutusu stilini ekle/koru */
     border: 1px solid rgba(142, 143, 153, 1);
     background-color: #f4f4fd;
     justify-content: center;
@@ -451,7 +655,7 @@ h3 {
   }
   .hero {
     background: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-      url("../images/people-office\ 1.jpg");
+      url("../images/people-office-1.jpg");
     background-size: cover;
     background-position: center;
   }
@@ -466,12 +670,15 @@ h3 {
   }
   .strategy-li h3 {
     font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: "Roboto", sans-serif;
   }
   .strategy-icon-box {
     display: flex;
     height: 112px;
     margin-bottom: 8px;
-    border: none; /* Kenarlık kaldırıldı */
+    border: none;
   }
 
   /* TEAM - 4 Sütun */
@@ -508,144 +715,4 @@ h3 {
     max-width: 528px;
     padding: 72px 24px 24px 24px;
   }
-}
-
-/* Genel Buton Stilleri */
-/* Linklerin altındaki çizgiyi kaldırır (Navigasyon, Adres, Footer) */
-a {
-  text-decoration: none;
-  /* Tüm linkler için genel renk ayarlaması */
-  color: inherit; /* Çoğu durumda üst elementin rengini miras alır */
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Tüm butonlar için varsayılan tarayıcı stilini sıfırlar */
-button {
-  cursor: pointer;
-  border: none;
-  padding: 0;
-  background-color: transparent;
-}
-
-/* Navigasyon Linkleri */
-.nav-ul a {
-  color: #2e2f42; /* Ana menü link rengi */
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  display: block; /* Linklerin tıklanabilir alanını genişletir */
-  padding: 24px 0; /* Üst ve alt boşluk ekler */
-}
-
-/* Navigasyon Linklerinin Hover/Focus Durumu */
-.nav-ul a:hover,
-.nav-ul a:focus {
-  color: #4d5ae5; /* Vurgu rengi */
-}
-
-/* Adres Linkleri */
-.address a {
-  font-style: normal;
-  color: #434455; /* Adres link rengi */
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-}
-
-/* Adres Linklerinin Hover/Focus Durumu */
-.address a:hover,
-.address a:focus {
-  color: #4d5ae5; /* Vurgu rengi */
-}
-
-/* Aktif (Mevcut) Studio Linkinin Vurgulanması (Görseldeki gibi alt çizgi ve renk) */
-/* HTML'de .li-studio içindeki a elementi için kullanılacak kural */
-.li-studio a {
-  position: relative;
-  color: #4d5ae5; /* Aktif link rengi */
-}
-.li-studio a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px; /* Kenarlığın altına hizala */
-  height: 4px;
-  width: 100%;
-  background-color: #4d5ae5;
-  border-radius: 2px;
-}
-
-/* Genel Buton Stili (Hero ve Subscribe butonu bu stili kullanır) */
-.button {
-  background-color: #4d5ae5; /* Mavi arka plan */
-  color: #ffffff;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  border-radius: 4px;
-  padding: 16px 32px; /* İç boşluk */
-  display: inline-flex; /* İçindeki metin ve ikonun hizalanması için */
-  justify-content: center;
-  align-items: center;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.button:hover,
-.button:focus {
-  background-color: #404bbf; /* Daha koyu mavi hover/focus rengi */
-}
-
-/* Hero Butonu (Ek boşluklar) */
-.hero-button {
-  min-width: 169px;
-  height: 56px;
-  margin: 0 auto; /* Ortalamak için */
-}
-
-/* Footer Subscribe Butonu */
-.subscribe-button {
-  /* Boyutlar zaten genel .button'dan geliyor */
-  padding: 8px 24px;
-  display: flex; /* İkon ve metin için */
-  gap: 16px; /* İkon ve metin arası boşluk */
-  min-width: 165px;
-}
-.subscribe-button .icon-icon-send {
-  fill: #ffffff; /* İkonun rengi */
-}
-
-/* İkonlar */
-
-/* TEAM Sosyal Medya İkonları için Gerekli Stiller */
-
-/* Sosyal İkon Kutusu Stili (Mavi Arka Plan, Yuvarlak) */
-.team-icon-box {
-  width: 40px;
-  height: 40px;
-  background-color: #4d5ae5; /* rgba(77, 90, 229, 1) */
-  border-radius: 50%; /* Dairesel şekil */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Sosyal İkon Kutusu Hover/Focus Etkisi (Daha Koyu Mavi) */
-.team-icon-box:hover,
-.team-icon-box:focus {
-  background-color: #404bbf;
-}
-
-/* Sosyal İkon Stili (İkonun Kendisi Beyaz) */
-.team-icon {
-  fill: rgba(244, 244, 253, 1); /* Beyaz/açık gri tonu, ikon rengi */
-}
-
-/* HTML yapınızda .team-social-list div'i içinde .team-icon-box'lar var. 
-   Bu .team-social-list'i hizalamak için aşağıdaki kuralı da Team bölümüne ekleyelim:
-   (Bu kural, Team bölümündeki kartlar için zaten mevcuttu, sadece kontrol amaçlı ekledim) */
-.team-social-list {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-bottom: 24px;
 }
