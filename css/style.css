@@ -154,6 +154,11 @@
   margin-right: 24px;
 }
 
+/* Görsel ve h3 başlığı arasında margin ekleme */
+.team-ul .team-li img {
+  margin-bottom: 32px;
+}
+
 /* 5. Navigasyon ve Alt Kısım Stilleri */
 
 .mobile-nav-ul {
