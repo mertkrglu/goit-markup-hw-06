@@ -16,6 +16,63 @@
   display: none;
 }
 
+.container a {
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 700;
+  font-family: "Raleway", sans-serif;
+}
+
+/* Mobil Navigasyon Linkleri */
+
+.mobile-nav-ul a {
+  font-size: 36px;
+  line-height: 1.11; /* 36px * 1.11 = ~40px */
+  font-weight: 700; /* Figma'ya göre kalin */
+  color: #2e2f42;
+  display: block;
+  margin-bottom: 40px;
+
+  /* 🟢 GÜNCELLEME: Figma'dan gelen 2% (0.02em) harf aralığı */
+  letter-spacing: 0.02em;
+}
+
+/* style.css - Mobil Adres Linkleri */
+
+.mobile-address a {
+  display: block;
+  font-style: normal;
+  font-weight: 500; /* E-posta için 500, telefon için aşağıda ezilir */
+  line-height: 1.2;
+  /* Gerekli olmasa da, varsayılan olarak 0.02em eklendi */
+  letter-spacing: 0.02em;
+}
+
+/* Telefon Numarası Linki (Büyük ve Mavi) */
+.mobile-address .phone-link {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500; /* Figma'ya göre kalin */
+  line-height: 24px;
+  color: #4d5ae5;
+  margin-bottom: 40px;
+
+  /* 🟢 GÜNCELLEME: Figma'dan gelen 2% (0.02em) harf aralığı */
+  letter-spacing: 0.02em;
+}
+
+/* E-posta Linki (Küçük ve Koyu Gri) */
+.mobile-address .mail-link {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500; /* 🟢 EKLENDİ: Figma'dan gelen 500 font ağırlığı */
+  color: #434455;
+  margin-bottom: 48px;
+  line-height: 1.2; /* 20px * 1.2 = 24px */
+  /* 🟢 EKLENDİ: Figma'dan gelen 2% (0.02em) harf aralığı */
+  letter-spacing: 0.02em;
+}
+
 /* Hamburger Butonunu Göster */
 .mobile-menu-btn-label {
   display: block; /* Veya flex */
@@ -92,6 +149,7 @@
   background-color: transparent;
   cursor: pointer;
   z-index: 1000;
+  background-color: rgba(231, 233, 252, 1);
 }
 
 /* 5. Navigasyon ve Alt Kısım Stilleri */
@@ -102,13 +160,14 @@
   margin: 0;
 }
 
-.mobile-nav-ul a {
-  font-size: 36px;
-  line-height: 1.11;
-  font-weight: 700;
-  color: #2e2f42;
-  display: block;
-  margin-bottom: 40px;
+/* 🟢 GÜNCELLENDİ: Mobil Menü Navigasyon Linkleri İçin Margin Ayarı */
+.mobile-menu-container .nav {
+  margin-left: -24px;
+}
+
+/* 🟢 GÜNCELLENDİ: Mobil Menü Adres Kısmı İçin Margin Ayarı */
+.mobile-menu-container .mobile-address {
+  margin-left: -24px;
 }
 
 .mobile-nav-ul a:hover,
@@ -123,30 +182,36 @@
   margin-bottom: 40px;
 }
 
-.mobile-address a {
-  display: block;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-.mobile-address .phone-link {
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 1.11;
-  color: #4d5ae5;
-  margin-bottom: 40px;
-}
-
-.mobile-address .mail-link {
-  font-size: 20px;
-  color: #434455;
-  margin-bottom: 48px;
-}
-
 .mobile-social-list {
   display: flex;
-  gap: 24px;
+  width: 100%;
+  justify-content: space-between; /* Figma'daki yana yayılmış görünüme uygun */
+}
+
+/* Mobil Menüdeki İkon Kapsayıcılarının Stili */
+.mobile-social-list .social-link {
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5; /* Ana Mavi renk */
+  border-radius: 50%;
+  display: flex; /* İkonu ortalamak için */
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🟢 KRİTİK EKLENTİ: İkonun Rengini Beyaz Yapma */
+.mobile-social-list .social-link svg {
+  fill: #f4f4fd;
+}
+
+.footer-social .social-list {
+  list-style: none; /* listelerin başındaki noktaları kaldır */
+  padding: 0;
+  margin: 0;
+
+  display: flex; /* 🟢 İkonları yatayda sırala */
+  justify-content: center; /* Ortala */
+  gap: 16px; /* İstenilen 16px aralığı */
 }
 
 /* Buton ve Link Temizleme */
@@ -154,13 +219,6 @@ a {
   text-decoration: none;
   color: inherit;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.container a {
-  font-size: 18px;
-  line-height: 21px;
-  font-weight: 700;
-  font-family: "Raleway", sans-serif;
 }
 
 button {
@@ -297,7 +355,7 @@ button {
 }
 
 .team-social-list {
-  display: flex;
+  display: flex !important;
   justify-content: center;
   gap: 24px;
   margin-bottom: 24px;
@@ -648,13 +706,6 @@ h3 {
 }
 
 /* Footer Sosyal İkon Listesi (Yan yana sıralama ve ortalama) */
-.social-list {
-  display: flex; /* KRİTİK: İkonları yan yana (yatayda) sıralar */
-  justify-content: center; /* İkonları yatay eksende ortalar */
-  gap: 16px; /* İkonlar arasında 16px boşluk bırakır */
-  margin-top: 0; /* Boşluk kontrolü için sıfırlama (Başlıkta 16px boşluk var) */
-  padding: 0;
-}
 
 .footer-social .social-link {
   /* Bu sınıfı veya HTML'inizdeki ikonları kapsayan doğru sınıfı kullanın */
@@ -730,11 +781,249 @@ h3 {
                bunu temizlemek için eklenmiştir. */
 }
 
-/* MODAL (MOBILE FIRST) */
+/* ========================================================= */
+/* 1. MODAL ARKA PLANI (BACKDROP) VE AÇILIŞ MEKANİZMASI */
+/* ========================================================= */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4); /* Koyu yarı saydam arkaplan */
+  z-index: 1000;
+
+  /* Başlangıçta Gizle */
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+
+  /* Animasyon Geçişi */
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modal Açıldığında (Buton href="#modal" hedefini tıklayınca) */
+.backdrop:target {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
 .modal {
-  width: 90%;
-  max-width: 392px;
+  /* Modal Penceresi */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  /* Başlangıçta içeriği dışarı kaydırma (opsiyonel ama iyi bir efekt sağlar) */
+  transform: translate(-50%, -50%);
+
+  width: 90%; /* Mobil esneklik */
+  max-width: 392px; /* Figma mobil maksimum genişlik */
+
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  /* Mobil Padding: Üst 72px, Yan 16px, Alt 24px */
   padding: 72px 16px 24px 16px;
+}
+
+/* ========================================================= */
+/* 2. KAPATMA BUTONU VE BAŞLIK */
+/* ========================================================= */
+
+.modal-close-btn {
+  /* X Kapatma Butonu */
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  cursor: pointer;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  background-color: #404bbf;
+  border: none;
+}
+
+.modal-close-btn svg {
+  fill: #2e2f42; /* İkon rengi */
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close-btn:hover svg,
+.modal-close-btn:focus svg {
+  fill: #ffffff; /* Hover'da ikon rengini beyaz yap */
+}
+
+.modal-form-title {
+  /* Modal Başlığı: Leave your contacts... */
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5; /* 24px */
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #2e2f42;
+  margin-bottom: 16px;
+}
+
+/* ========================================================= */
+/* 3. FORM INPUTLARI VE İKONLARI */
+/* ========================================================= */
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-input-wrapper {
+  margin-bottom: 8px; /* Her input grubu arasındaki boşluk */
+}
+
+.modal-textarea-wrapper {
+  margin-bottom: 16px; /* Yorum alanından sonraki boşluk */
+}
+
+.modal-label {
+  /* Name, Phone, Email, Comment başlıkları */
+  display: block;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
+  margin-bottom: 4px;
+}
+
+.input-box {
+  /* Input ve İkonu çevreleyen kapsayıcı */
+  position: relative;
+}
+
+.modal-input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  padding-left: 38px; /* İkonun yerleşmesi için boşluk */
+  background-color: transparent;
+  color: #2e2f42;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Input odaklandığında mavi kenarlık */
+.modal-input:focus {
+  border-color: #4d5ae5;
+}
+
+/* Input içindeki ikonlar */
+.input-box svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #2e2f42; /* İkon rengi */
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Input odaklandığında ikonun rengini mavi yap */
+.modal-input-wrapper:focus-within .input-box svg {
+  fill: #4d5ae5;
+}
+
+/* Yorum Alanı (Textarea) */
+.modal-textarea {
+  height: 120px;
+  padding: 8px 16px;
+  resize: none;
+  font-size: 12px;
+  line-height: 1.17;
+}
+
+/* ========================================================= */
+/* 4. GİZLİLİK SÖZLEŞMESİ (CHECKBOX) */
+/* ========================================================= */
+
+.modal-checkbox-wrapper {
+  margin-bottom: 24px;
+}
+
+.modal-check-label {
+  /* Tüm label ve checkbox'ı içeren satır */
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.privacy-link {
+  color: #4d5ae5; /* Mavi Link rengi */
+  text-decoration: underline;
+  margin-left: 2px;
+}
+
+.modal-custom-checkbox {
+  /* Görünür kare (Checkbox simülasyonu) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  border: 1.25px solid #2e2f42;
+  border-radius: 2px;
+  margin-right: 8px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Checkbox işaretlendiğinde görünüm */
+.modal-check:checked + .modal-check-label .modal-custom-checkbox {
+  background-color: #404bbf;
+  border-color: #404bbf;
+}
+
+/* Checkbox işaretlendiğinde içindeki ikonun görünür olması */
+.modal-custom-checkbox svg {
+  fill: #ffffff; /* İkonu beyaz yap */
+  opacity: 0;
+}
+
+.modal-check:checked + .modal-check-label .modal-custom-checkbox svg {
+  opacity: 1;
+}
+
+/* ========================================================= */
+/* 5. GÖNDER BUTONU */
+/* ========================================================= */
+
+.subscribe-btn-wrapper {
+  /* Butonu ortalamak için kapsayıcı */
+  text-align: center;
+}
+
+.modal-submit-btn {
+  /* Mavi Gönder Butonu (Ortalanmış ve genişliği ayarlanmış) */
+  margin: 0 auto;
+  min-width: 169px;
+  /* (Diğer buton stillerini .button sınıfından alacaktır) */
 }
 
 /* ---------------------------------------------------- */
