@@ -1041,16 +1041,16 @@ h3 {
 }
 
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+  position: absolute; /* Ekrandan tamamen çıkar */
+  width: 1px; /* Çok küçük yap */
+  height: 1px; /* Çok küçük yap */
+  margin: -1px; /* Negatif margin ile görünmez yap */
+  border: 0; /* Kenarlık yok */
+  padding: 0; /* İç boşluk yok */
+  white-space: nowrap; /* Satır sonu yok */
+  clip-path: inset(100%); /* Klibi tamamen gizle */
+  clip: rect(0 0 0 0); /* Eski tarayıcılar için */
+  overflow: hidden; /* Taşmayı gizle */
 }
 
 /* ========================================================= */
