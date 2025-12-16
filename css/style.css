@@ -819,6 +819,7 @@ h3 {
 }
 
 .modal {
+  position: absolute;
   /* Figma Boyutları ve Konumlandırma */
   width: 288px; /* Figma: 288px */
   height: 623px; /* Figma: 623px (Min-height olarak daha güvenli) */
@@ -1096,6 +1097,10 @@ h3 {
   fill: #4d5ae5;
 }
 
+.footer-social .social-text {
+  margin-top: 72px;
+}
+
 /* ---------------------------------------------------- */
 /* --- TABLET GÖRÜNÜMÜ (min 768px) --- */
 /* ---------------------------------------------------- */
@@ -1292,13 +1297,26 @@ h3 {
   .footer .logo {
     text-align: left;
   }
-  .footer p {
-    margin: 0;
-  }
-  .footer-social {
+  /* Footer'da Social yazısının konumu ve stili */
+  .footer-social .social-text {
     text-align: left;
+    margin-bottom: 16px;
+    margin-top: 0;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+  }
+
+  /* Footer Sosyal İkon Listesi (Yan yana sıralama ve ortalama) */
+  .footer-social .social-list {
+    list-style: none; /* listelerin başındaki noktaları kaldır */
+    padding: 0;
     margin: 0;
-    /* Bu eleman, ana grup içinde alt sırada yer alır */
+    display: flex; /* 🟢 İkonları yatayda sırala */
+    justify-content: flex-start; /* Sol hizala */
+    gap: 16px; /* İstenilen 16px aralığı */
   }
 
   /* 🔴 Sağ Kolon: Abone Olma Kısmı */
@@ -1323,10 +1341,23 @@ h3 {
     margin: 0;
   }
 
-  /* MODAL */
+  /* 🟢 MODAL GÜNCELLEMESİ (min-width: 768px) 🟢 */
   .modal {
-    max-width: 408px;
+    /* Figma Boyutları */
+    width: 408px;
+    min-height: 584px;
+
+    /* İç Boşlukları Güncelle (Figma'ya göre: 72px Üst, 24px Yanlar, 24px Alt) */
     padding: 72px 24px 24px 24px;
+
+    /* Merkezlemeyi garanti eder, mobil stilden miras alınmıştır */
+    transform: translate(-50%, -50%);
+  }
+
+  /* Textarea Genişliğini 100% yapıyoruz (Modal 408px, padding 24px; İç genişlik 360px olur) */
+  .modal-textarea {
+    width: 100%; /* Kapsayıcı (modal) genişliğine göre ayarlanır */
+    height: 120px; /* Yükseklik aynı kalır */
   }
 }
 
