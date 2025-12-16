@@ -1106,6 +1106,14 @@ h3 {
     padding: 0 24px;
   }
 
+  /* Logo ve linklerin tablet ölüçlerine göre ayarlanması */
+  .container a {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+  }
+
   /* 🟢 HEADER GÜNCELLEMESİ (Mobil Menüyü Gizle, Masaüstü/Tablet Menüyü Göster) */
   /* Mobil menü mekanizmasını gizle */
   .mobile-menu-btn-label,
@@ -1154,10 +1162,13 @@ h3 {
 
   /* Adres Linkleri - Tekrar Tanımlama (Tablet gereksinimi) */
   .address-desktop a {
-    font-size: 12px; /* Tablette font boyutu 12px */
-    line-height: 1.16;
     letter-spacing: 0.04em;
     padding: 5px 0;
+    font-size: 12px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400; /* Figma'ya göre ince */
+    line-height: 14px;
+    color: rgba(67, 68, 85, 1);
   }
 
   /* Hero title tablet için responsive */
@@ -1192,21 +1203,32 @@ h3 {
     flex-wrap: wrap;
     gap: 72px 24px;
   }
+
+  /* Hero paragraf stili tablet için responsive */
+  .strategy-ul p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: rgba(67, 68, 85, 1);
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.02em;
+  }
+
   .strategy-li {
     width: calc((100% - 24px) / 2);
   }
+
+  /* Strategy başlıkları tablet için responsive */
   .strategy-li h3 {
     text-align: left;
+    font-family: "Roboto", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 0.02em;
   }
   .strategy-icon-box {
-    display: flex;
-    height: 112px;
-    margin-bottom: 8px;
-    border: 1px solid rgba(142, 143, 153, 1);
-    background-color: #f4f4fd;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
+    display: none; /* Tablet görünümünde ikon kutuları gizli kalır */
   }
 
   /* TEAM - 2 Sütun */
