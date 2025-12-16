@@ -976,12 +976,22 @@ h3 {
 .modal-check-label {
   /* Tüm label ve checkbox'ı içeren satır */
   font-size: 12px;
-  line-height: 1.17;
+  line-height: 14px;
   letter-spacing: 0.04em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   color: #8e8f99;
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+
+.privacy-link {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
 }
 
 .privacy-link {
@@ -990,34 +1000,58 @@ h3 {
   margin-left: 2px;
 }
 
+/* Özel Onay Kutusu (Beyaz Kare) */
 .modal-custom-checkbox {
-  /* Görünür kare (Checkbox simülasyonu) */
-  display: flex;
-  justify-content: center;
+  display: inline-flex; /* İçindeki SVG'yi ortalamak için */
   align-items: center;
+  justify-content: center;
   width: 16px;
   height: 16px;
-  border: 1.25px solid #2e2f42;
+  border: 1px solid rgba(46, 47, 66, 0.4); /* Varsayılan çerçeve rengi */
   border-radius: 2px;
-  margin-right: 8px;
+  flex-shrink: 0; /* Küçülmesini engeller */
+  margin-right: 8px; /* Metinle arasını açar */
+  cursor: pointer;
+
+  /* Geçiş efekti (Transition) */
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Checkbox işaretlendiğinde görünüm */
-.modal-check:checked + .modal-check-label .modal-custom-checkbox {
-  background-color: #404bbf;
-  border-color: #404bbf;
+/* Tik Simgesi (icon-send) */
+.modal-custom-checkbox .icon-send {
+  fill: #ffffff; /* Tik rengi beyaz olmalı */
+  opacity: 0; /* Başlangıçta görünmez (tiklenmemiş) */
+  /* Geçiş efekti */
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Checkbox işaretlendiğinde içindeki ikonun görünür olması */
-.modal-custom-checkbox svg {
-  fill: #ffffff; /* İkonu beyaz yap */
-  opacity: 0;
+/* input:checked olduğunda özel kutunun (span) rengini ve çerçevesini değiştir */
+.visually-hidden:checked + .modal-check-label .modal-custom-checkbox {
+  background-color: #404bbf; /* Arka plan rengi (Mavi) */
+  border: 1px solid #404bbf; /* Çerçeve rengi aynı yapılır */
 }
 
-.modal-check:checked + .modal-check-label .modal-custom-checkbox svg {
-  opacity: 1;
+/* input:checked olduğunda tik simgesini (icon-send) görünür yap */
+.visually-hidden:checked
+  + .modal-check-label
+  .modal-custom-checkbox
+  .icon-send {
+  opacity: 1; /* Tik simgesini görünür yap */
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 /* ========================================================= */
