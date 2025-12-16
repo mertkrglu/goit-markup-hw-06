@@ -1232,14 +1232,21 @@ h3 {
   }
 
   /* TEAM - 2 Sütun */
+  /* Team bölümündeki kartların düzeni */
   .team-ul {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 64px 24px;
     justify-content: center;
+    margin: 72px 108px 96px 108px;
   }
   .team-li {
     width: calc((100% - 24px) / 2);
+  }
+
+  /* Team sosyal medya ikonları arasındaki boşluk */
+  .team-social-list {
+    gap: 16px;
   }
 
   /* PORTFOLIO - 2 Sütun */
