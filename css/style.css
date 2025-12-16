@@ -1380,6 +1380,18 @@ h3 {
     padding-bottom: 120px;
   }
 
+  /* Strategy ikonlarının desktop görünümü için ortalanması */
+  .strategy-icon-box {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 112px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(142, 143, 153, 1);
+    background-color: #f4f4fd;
+  }
+
   /* HEADER */
   .header .container {
     height: 72px; /* Header yüksekliği */
