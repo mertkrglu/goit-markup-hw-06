@@ -1260,19 +1260,35 @@ h3 {
     width: calc((100% - 24px) / 2);
   }
 
-  /* FOOTER - Yatay ve İki Satırlı Düzen */
+  /* FOOTER BÖLÜMÜNÜN YENİDEN YAPILANDIRILMASI */
+
   .footer .container {
+    /* Ana grupları (main-group ve subscribe) yan yana getirmek için flex */
+    display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 72px 24px;
+    flex-wrap: wrap; /* Gerekirse alt satıra geçmesine izin ver */
     justify-content: flex-start;
-    align-items: flex-start;
-    padding-left: 108px;
+    /* Sol grup ile Sağ grup arasına büyük boşluk bırakmak için */
+    gap: 72px 24px;
+    padding-top: 72px; /* Dikey padding ayarı */
+    padding-bottom: 72px; /* Dikey padding ayarı */
+    padding-left: 108px; /* Sol kenardan 108px itme (Figma'ya göre) */
+    padding-right: 24px; /* Sağ kenardan 24px itme */
   }
+
+  /* 🟢 Sol Kolon Kapsayıcısı: footer-info ve footer-social alt alta gelmeli */
+  .footer-main-group {
+    display: flex;
+    flex-direction: row; /* İÇERİĞİ (Info ve Social) YAN YANA SIRALA */
+    gap: 72px; /* Info ve Social arasında dikey boşluk */
+  }
+
   .footer-info {
     text-align: left;
-    width: 264px;
+    width: 100%; /* Kapsayıcısının (main-group) genişliğini kullanır */
+    margin: 0;
   }
+
   .footer .logo {
     text-align: left;
   }
@@ -1281,24 +1297,29 @@ h3 {
   }
   .footer-social {
     text-align: left;
-  }
-  /* Footer abone olma kısmını tablet görünümünde doğru konuma taşımak için */
-  .footer-subscribe {
-    text-align: left;
-    width: 100%; /* Tam satır kaplayarak bir alt satıra geçer */
-    padding-top: 16px;
-    /* Tablette 2. satırda, soldan 108px boşluk vermesi için: */
-    margin-left: -84px; /* (108px - 24px gap) = 84px */
+    margin: 0;
+    /* Bu eleman, ana grup içinde alt sırada yer alır */
   }
 
-  .subscribe-form {
-    flex-direction: row;
-    gap: 24px;
-    width: auto; /* İçerik genişliği kadar yer kaplar */
-    margin: 0; /* Ortalamayı kaldırır */
+  /* 🔴 Sağ Kolon: Abone Olma Kısmı */
+  .footer-subscribe {
+    text-align: left;
+    width: 450px; /* Abone formu için yeterli genişlik (Form input + butonun toplamı) */
+    margin: 0;
+    padding-top: 0;
   }
+
+  /* Abone Formu İç Yapısı (Input ve Buton) */
+  .subscribe-form {
+    display: flex;
+    flex-direction: row; /* Input ve butonu yatayda sıralar */
+    gap: 24px;
+    margin: 0;
+    justify-content: flex-start;
+  }
+
   .subscribe-form input[type="email"] {
-    width: 264px;
+    width: 264px; /* Input genişliği */
     margin: 0;
   }
 
