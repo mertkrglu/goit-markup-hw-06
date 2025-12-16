@@ -819,25 +819,37 @@ h3 {
 }
 
 .modal {
-  /* Modal Penceresi */
+  /* Figma Boyutları ve Konumlandırma */
+  width: 288px; /* Figma: 288px */
+  height: 623px; /* Figma: 623px (Min-height olarak daha güvenli) */
+  min-height: 623px;
+  border-radius: 4px; /* Figma: 4px */
+
+  /* Arka Plan ve Gölge */
+  background-color: #fcfcfc; /* Arka plan rengi */
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    0 2px 1px 0 rgba(0, 0, 0, 0.2);
+
+  /* Ekranın Ortalanması (Dikey ve Yatay) */
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%); /* Merkezleme için */
 
-  /* Başlangıçta içeriği dışarı kaydırma (opsiyonel ama iyi bir efekt sağlar) */
-  transform: translate(-50%, -50%);
+  /* Figma'daki kenar boşlukları yerine iç boşluk (padding) kullanıyoruz */
+  padding: 72px 16px 24px; /* Üstte 72px, Yanlarda 16px, Altta 24px (tasarımda boşluklar) */
 
-  width: 90%; /* Mobil esneklik */
-  max-width: 392px; /* Figma mobil maksimum genişlik */
-
-  background-color: #ffffff;
-  border-radius: 4px;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-
-  /* Mobil Padding: Üst 72px, Yan 16px, Alt 24px */
-  padding: 72px 16px 24px 16px;
+  /* Diğer Ayarlar */
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* overflow-y: auto; İçerik taşarsa kaydırma çubuğu sağlar */
 }
+
+/* Figma'daki Left: 16px ve Top: 8px, modalın başlangıçta ortalanmış yerine 
+   belirli bir konuma sabitlenmesini ifade ediyordu. Ancak modern mobil 
+   modal tasarımlarında ortalama (translate) tercih edilir. Eğer tam 
+   Figma görüntüsünü elde etmek istiyorsanız, bu değerleri kaldırıp 
+   yerine media query'de tam sabit pozisyon tanımlayabilirsiniz. 
+   Ancak ortalama daha iyi bir kullanıcı deneyimi sunar. */
 
 /* ========================================================= */
 /* 2. KAPATMA BUTONU VE BAŞLIK */
@@ -970,7 +982,7 @@ h3 {
 /* ========================================================= */
 
 .modal-checkbox-wrapper {
-  margin-bottom: 24px;
+  margin-bottom: 8px; /* Yorum alanından sonraki boşluk  send butonu*/
 }
 
 .modal-check-label {
