@@ -1367,8 +1367,9 @@ h3 {
 @media screen and (min-width: 1158px) {
   /* CONTAINER */
   .container {
-    max-width: 1158px;
-    padding: 0;
+    max-width: 1440px;
+    padding: 0 24px;
+    /* tablette logo ve linklere padding */
   }
 
   /* Bölüm Boşlukları */
@@ -1392,6 +1393,8 @@ h3 {
     background-color: #f4f4fd;
   }
 
+  /* logo linkler ve metinler için css ayarlarını yap o kaldı */
+
   /* HEADER */
   .header .container {
     height: 72px; /* Header yüksekliği */
@@ -1411,6 +1414,8 @@ h3 {
     line-height: 1.5;
     letter-spacing: 0.02em;
     padding: 0;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
   }
 
   /* HERO */
@@ -1423,6 +1428,13 @@ h3 {
       url("../images/people-office-1.jpg");
     background-size: cover;
     background-position: center;
+  }
+
+  .hero-title {
+    font-size: 56px;
+    line-height: 60px;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
   }
 
   /* STRATEGY - 4 Sütun */
@@ -1438,6 +1450,15 @@ h3 {
     font-size: 20px;
     line-height: 24px;
     font-family: "Roboto", sans-serif;
+  }
+
+  .strategy-ul p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgba(67, 68, 85, 1);
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.02em;
   }
   .strategy-icon-box {
     display: flex;
@@ -1464,29 +1485,51 @@ h3 {
     width: calc((100% - 48px) / 3);
   }
 
-  /* FOOTER - Yatay ve Düzenli Sıralama */
+  /* --- FOOTER DESKTOP DÜZENLEMESİ --- */
   .footer .container {
-    flex-wrap: nowrap; /* Tek satırda kalır */
-    gap: 0;
-    justify-content: flex-start;
-    padding-left: 0;
+    flex-direction: row; /* Her şeyi tek satıra diz */
+    align-items: baseline; /* Öğeleri üstten hizala */
+    justify-content: space-between; /* Araları aç */
+    gap: 0; /* Otomatik boşluk için gap'i sıfırlıyoruz */
+    padding-left: 15px;
+    padding-right: 15px;
   }
+  /* Sütun Genişlikleri ve Hizalamalar */
   .footer-info {
-    margin-right: 120px; /* Logo ve Sosyal Alan Arası */
+    margin-right: 120px; /* Logo/Metin ile Sosyal Medya arası boşluk */
+    width: 264px;
   }
   .footer-social {
-    margin-right: 80px; /* Sosyal Alan ve Abone Alanı Arası */
+    margin-right: 80px; /* Sosyal Medya ile Subscribe arası boşluk */
+    width: 208px;
   }
-  /* Footer abone olma kısmını tek satırda hizalamak için */
+
+  /* Abone Olma Kısmı */
   .footer-subscribe {
-    width: auto;
-    padding-top: 0;
-    margin-left: 0;
+    width: 453px; /* Kalan alanı kaplasın */
+    text-align: left;
+    margin-left: 150px;
+  }
+
+  /* Formu Yan Yana Getir */
+  .subscribe-form {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .subscribe-form input[type="email"] {
+    width: 264px;
+    opacity: 1; /* Görünürlüğü netleştir */
+  }
+
+  .footer-main-group {
+    gap: 120px; /* Info ve Social arasında daha geniş boşluk */
   }
 
   /* MODAL */
   .modal {
-    max-width: 528px;
+    width: 408px;
+    min-height: 584px;
     padding: 72px 24px 24px 24px;
   }
 }
