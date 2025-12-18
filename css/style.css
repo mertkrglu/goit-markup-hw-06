@@ -464,7 +464,10 @@ ul {
 
 /* Hero Bölümü (MOBILE FIRST) */
 .hero {
-  max-width: none;
+  /* Son ekran 1440px için hero container ayarı */
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
   background-color: #2e2f42;
   height: auto;
   display: flex;
@@ -478,6 +481,13 @@ ul {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.hero-container {
+  /* Son ekran 1440px için hero container ayarı */
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 16px; /* Mobil */
 }
 
 /* Hero title (MOBILE FIRST) */
@@ -1111,6 +1121,11 @@ h3 {
     padding: 0 24px;
   }
 
+  /* Son ekran 1440px için hero container ayarı */
+  .hero-container {
+    padding: 0 24px;
+  }
+
   /* Logo ve linklerin tablet ölüçlerine göre ayarlanması */
   .container a {
     font-size: 16px;
@@ -1370,6 +1385,20 @@ h3 {
     max-width: 1440px;
     padding: 0 24px;
     /* tablette logo ve linklere padding */
+  }
+
+  .container .logo {
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .container a {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
   }
 
   /* Bölüm Boşlukları */
