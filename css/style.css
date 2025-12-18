@@ -1562,3 +1562,14 @@ h3 {
     padding: 72px 24px 24px 24px;
   }
 }
+
+/* yüksek çözünürlüklü ekranlar için hero arka plan görseli */
+@media screen and (min-width: 1158px) and (min-resolution: 2dppx) {
+  .hero {
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url("../images/people-office-1@2x.jpg");
+  }
+}
